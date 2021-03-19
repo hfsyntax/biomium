@@ -3,7 +3,7 @@ class User {
         this.alive = false
         this.name = name
         this.cells = []
-        this.room = 'none'
+        this.room = null
         this.message = []
     }
 
