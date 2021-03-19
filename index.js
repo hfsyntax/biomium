@@ -84,10 +84,10 @@ io.on('connection', socket => {
         console.log(`there are now ${Object.keys(users).length} users`)
     })
 
-    socket.on('cells', cells => {
+    socket.on('cells', (cells, error) => {
         if (!cells || !user.alive) {
             console.log('invalid data on cells')
-            return
+            return error('invalid data on cells') // in case anything fails
         }
 
         console.log('received cells', cells)
