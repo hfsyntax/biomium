@@ -1,13 +1,13 @@
 {
   "name": "biomium-server",
   "version": "1.0.0",
-  "description": "next gen nasa technology",
+  "description": "server configuration for biomium biome3d extension",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "node server/index.js"
   },
-  "author": "Purple Drank",
+  "author": "PHVNTXM",
   "license": "UNLICENSED",
   "dependencies": {
     "socket.io": "^2.2.0"
