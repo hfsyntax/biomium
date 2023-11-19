@@ -1,0 +1,1121 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed|Ubuntu');
+@import url('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.3.4/jquery.minicolors.css');
+
+span:hover{
+  cursor: default;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  
+}
+::-webkit-scrollbar-thumb {
+  background: #4c4c4c;
+  border-radius: 15px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+.welcome-message {
+    background-color: #191919;
+    color: white;
+    text-align: center;
+    line-height: 2.8;
+    font-size: 18px;
+    font-family: Roboto condensed;
+    opacity: 0.9;
+    border-radius: 5px;
+    position: absolute;
+    top: 87%;
+    left: 1%;
+    padding: 10px;
+}
+
+#minimap-container{
+  width: 216px;
+  height: 260px;
+  background: #191919;
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+  color: gray;
+  text-align: right;
+  font-family: Ubuntu;
+  font-weight: bold;
+}
+
+#biomium-minimap{
+  border: 1px solid gray;
+  border-radius: 3px;
+  background-color: black;
+  z-index: 99999;
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+#biomium-tag{
+    width: 70px;
+    left: 15px;
+    top: 30px;
+}
+
+#sector-location{
+    color: white;
+    font-family: Ubuntu;
+    font-weight: bold;
+    font-size: 25px;
+    position: absolute;
+    bottom: 85%;
+    left: 6%;
+}
+
+.inputs{
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #4c4c4c;
+    position: absolute;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+#custom-skin {
+    width: 280px;
+    left: 15px;
+    top: 80px;
+}
+
+.tabcontent {
+    display: none;
+    padding: 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(calc(-50% - .5px));
+    width: 320px;
+    height: 515px;
+    background: #191919;
+    border-radius: 15px;
+    background-size: cover;
+    overflow: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+html,body,game {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+#screen {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden
+}
+
+#left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0
+}
+
+#right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    background: #eee
+}
+
+.top {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.top .panel {
+    width: 200px;
+    color: white;
+    background: #191919;
+    padding: 5px;
+    margin: 5px;
+    font-size: 16px;
+    font-family: Roboto Condensed;
+    text-align: center;
+}
+
+.top .panel center{
+    font-size: 30px;
+}
+
+.top .panel .self {
+    background: rgba(60,120,60,0.7)
+}
+
+.top .panel .topmass::before {
+  content: "[";
+}
+
+.top .panel .topmass {
+    float: left;
+    margin: -18px -60px;
+    color: gray;
+}
+.top .panel .topmass::after {
+  content: "]";
+}
+.top .panel .topname{
+  color: white;
+}
+
+#startpanel {
+    padding: 5px;
+    border-radius: 15px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 190px;
+    background: #191919;
+    background-size: cover;
+    
+}
+
+#reigon{
+    width: 140px;
+    left: 15px;
+    top: 80px;
+}
+
+#name-input{
+    width: 170px;
+    left: 125px;
+    top: 30px;
+}
+#skin-select{
+    width: 140px;
+    left: 175px;
+    top: 80px;
+}
+
+.right, .ad, .info, .left{
+    display: none;
+}
+/* mass panel */
+#game > div.top > div:nth-child(1){
+    display: none;
+}
+
+/* fps  extras */
+#fps > span:nth-child(3), #fps > span:nth-child(4){
+  display: none;
+}
+
+
+#startpanel button {
+    background-color: #008CBA;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 10px 32px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 130px;
+    left: 35px;
+    width: 260px; 
+    height: 40px;
+}
+
+#wsdisconnect-panel {
+  font-size: 16px;
+  font-family: Roboto condensed;
+  position: absolute;
+  bottom: 3%;
+  width: 300px;
+  height: 50px;
+  background: #191919;
+  text-align: center;
+  color: white;
+  border: 2px solid #4c4c4c;
+}
+
+#wsdisconnect-panel::after{
+  margin: 5px;
+  content: "[Biome3d] disconnected.";
+}
+#wsdisconnect-panel > center > div{
+  display: none;
+}
+
+#wsdisconnect-panel button {
+  height: 20px;
+  width: 100px;
+  font-size: 10px;
+  cursor: pointer;
+  line-height: 5px;
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  background: #4c4c4c;
+  color: black;
+  outline: none;
+  border: none;
+}
+
+
+
+.clear {
+    clear: both
+}
+
+.hidden {
+    display: none
+}
+
+#fps {
+    position: absolute;
+    left: 10px;
+    height: 26px;
+    width: 325px;
+    text-align: center;
+    font-Size: 16px;
+    font-family: Roboto condensed;
+    background: #191919;
+    color: white;
+    padding: 5px;
+    line-height: 26px;
+}
+#fps br{
+  display: none;
+  content: ' '
+}
+
+#chat{
+  position: absolute;
+  left: 10px;
+  bottom: 50px;
+}
+
+.txt-serverfull {
+    font-Size: 16px
+}
+
+.theme-titles{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-family: Roboto Condensed;
+    cursor: default;
+    position: relative;
+    
+  }
+  #themepanel u{
+    width: 200px;
+  }
+  .theme-input-container-left{
+    position: absolute;
+    left: 60px;
+    text-align: center;
+  }
+  .theme-input-container-right{
+    position: absolute;
+    right: 60px;
+    text-align: center;
+  }
+  .theme-input-container-center{
+    position: absolute;
+    right: 60px;
+    text-align: center;
+  }
+  .theme-input-container-left label{
+    display: block;
+    color: white;
+    font-size: 15px;
+    font-family: Roboto Condensed;
+    cursor: default;
+  }
+  .theme-input-container-right label{
+    display: block;
+    color: white;
+    font-size: 15px;
+    font-family: Roboto Condensed;
+    cursor: default;
+  }
+  #premade-themes{
+    width: 120px;
+    height: 30px;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    padding: 0%;
+  }
+  #reset-theme-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 110px;
+    height: 30px;
+  }
+  #tt1{
+    top: 25px;
+  }
+  #tt2{
+    top: 330px;
+  }
+  #nav-theme{
+  top: 75px;
+  }
+  #navb-theme{
+    top: 75px;
+  }
+  #navi-theme{
+    top: 135px;
+  }
+  #nava-theme{
+    top: 135px;
+  }
+  #navin-theme{
+    top: 195px;
+  }
+  #navt-theme{
+    top: 195px;
+  }
+  #navp-theme{
+    top: 255px;
+  }
+  #navsp-theme{
+    top: 255px;
+  }
+  #pi-theme{
+    position: absolute;
+    top: 325px;
+    left: 65px;
+  }
+  #gi-theme{
+    top: 410px;
+  }
+  #git-theme{
+    top: 410px;
+  }
+  #lead-theme{
+    top: 470px;
+  }
+  #leadt-theme{
+    top: 470px;
+  }
+  #leadn-theme{
+    top: 530px;
+  }
+  #leadm-theme{
+    top: 530px;
+  }
+  #tt3{
+    top: 530px;
+  }
+  #map-theme{
+    top: 640px;
+  }
+  #mapb-theme{
+    top: 640px;
+  }
+  #mapn-theme{
+    top: 700px;
+  }
+  #mapd-theme{
+    top: 700px;
+  }
+  #mapl-theme{
+    top: 760px;
+  }
+  #maps-theme{
+    top: 760px;
+  }
+  #tt4{
+    top: 730px;
+  }
+  #flo-theme{
+    top: 870px;
+  }
+  #fog-theme{
+    top: 870px;
+  }
+  #food-theme{
+    top: 930px;
+  }
+  #wall-theme{
+    top: 930px;
+  }
+  #tree-theme{
+    top: 990px;
+  }
+  #trunk-theme{
+    top: 990px;
+  }
+  #tt5{
+    top: 930px;
+  }
+  #teamt-theme{
+    top: 1100px;
+  }
+  #teamtxt-theme{
+    top: 1100px;
+  }
+  #teamb-theme{
+    top: 1160px;
+  }
+  #teamo-theme{
+    top: 1160px;
+  }
+  #timeb-theme{
+    top: 1220px;
+  }
+  .reset{
+    border: 1px solid gray;
+    color: white;
+    background: transparent;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+  }
+  .reset:hover{
+    background-color: #961100;
+  }
+
+ /* hotkeys */
+ 
+ #reset-keys-btn{
+   padding: 3px;
+ }
+ 
+ .hk-span{
+  color: white;
+  font-family: Roboto Condensed;
+  font-size: 25px;
+  position: absolute;
+  left: 45px;
+}
+#default-keys{
+  width: 200px;
+  height: 95px;
+  text-align: center;
+  top: 365px;
+  left: 60px;
+  font-family: Roboto Condensed;
+}
+#default-keys span{
+  font-family: Roboto Condensed;
+  font-size: 15px;
+}
+#x1split-input{
+  width: 50px;
+  right: 45px;
+  top: 40px;
+}
+#x1split-span{
+  top: 40px;
+}
+#x2split-input{
+  width: 50px;
+  right: 45px;
+  top: 100px;
+}
+#x2split-span{
+  top: 100px;
+}
+#x16split-input{
+  width: 50px;
+  right: 45px;
+  top: 160px;
+}
+#x16split-span{
+  top: 160px;
+}
+#respawn-input{
+  width: 50px;
+  right: 45px;
+  top: 220px;
+}
+#respawn-span{
+  top: 220px;
+}
+#tnav-input{
+  width: 50px;
+  right: 45px;
+  top: 280px;
+}
+#tnav-span{
+  top: 280px;
+}
+#chatKey-input{
+  width: 50px;
+  right: 45px;
+  top: 340px;
+}
+#chatKey-span{
+  top: 340px;
+}
+ 
+ /* settings */ 
+ .switch {
+  position: absolute !important;
+  display: inline-block !important;
+  width: 40px;
+  height: 20px;
+  right: 15px;
+}
+
+.switch input { 
+opacity: 0 !important;
+width: 0 !important;
+height: 0 !important;
+}
+
+.slider {
+position: absolute !important;
+cursor: pointer !important;
+top: 0 !important;
+left: 0 !important;
+right: 0 !important;
+bottom: 0 !important;
+background-color: #ccc !important;
+-webkit-transition: .4s !important;
+transition: .4s !important;
+}
+
+.slider:before {
+position: absolute !important;
+content: "" !important;
+height: 17px !important;
+width: 17px !important;
+left: 0px !important;
+bottom: 1px !important;
+background-color: white !important;
+-webkit-transition: .4s !important;
+transition: .4s !important;
+}
+
+input:checked + .slider {
+background-color: #2196F3 !important;
+}
+
+input:focus + .slider {
+box-shadow: 0 0 1px #2196F3 !important;
+}
+
+input:checked + .slider:before {
+-webkit-transform: translateX(22px) !important;
+-ms-transform: translateX(22px) !important;
+transform: translateX(22px) !important;
+}
+.checkbox-span{
+  position: absolute;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+  font-family: Roboto Condensed;
+  cursor: default;
+}
+
+#st1{
+  top: 25px;
+}
+
+#st2{
+  top: 380px;
+}
+#st3{
+  top: 630px;
+}
+#st4{
+  top: 880px;
+}
+
+#gi-span{
+  top: 75px;
+}
+#gi-switch{
+  top: 75px;
+}
+#mi-span{
+  top: 125px;
+}
+#mi-switch{
+  top: 125px;
+}
+#hl-span{
+  top: 175px;
+}
+#hl-switch{
+  top: 175px;
+}
+#teammates-span{
+  top: 225px;
+}
+#teammates-switch{
+  top: 225px;
+}
+#sm-span{
+  top: 275px;
+}
+#sm-switch{
+  top: 275px;
+}
+#time-span{
+  top: 325px;
+}
+#time-switch{
+  top: 325px;
+}
+#mass-span{
+  top: 375px;
+}
+#mass-switch{
+  top: 375px;
+}
+#tre-span{
+  top: 460px;
+}
+#tre-switch{
+  top: 460px;
+}
+#w-span{
+  top: 510px;
+}
+#w-switch{
+  top: 510px;
+}
+#pe-span{
+  top: 560px;
+}
+#pe-switch{
+  top: 560px;
+}
+#fo-span{
+  top: 610px;
+}
+#fo-switch{
+  top: 610px;
+}
+#til-span{
+  top: 660px;
+}
+#til-switch{
+  top: 660px;
+}
+#on-span{
+  top: 740px;
+}
+#on-switch{
+  top: 740px;
+}
+#oon-span{
+  top: 790px;
+}
+#oon-switch{
+  top: 790px;
+}
+#os-span{
+  top: 840px;
+}
+#os-switch{
+  top: 840px;
+}
+#tra-span{
+  top: 890px;
+}
+#tra-switch{
+  top: 890px;
+}
+#ar-span{
+  top: 940px;
+}
+#ar-switch{
+  top: 940px;
+}
+#map-span{
+  top: 1020px;
+}
+#map-switch{
+  top: 1020px;
+}
+#hmn-span{
+  top: 1070px;
+}
+#hmn-switch{
+  top: 1070px;
+}
+#hms-span{
+  top: 1120px;
+}
+#hms-switch{
+  top: 1120px;
+}
+#hml-span{
+  top: 1170px;
+}
+#hml-switch{
+  top: 1170px;
+}
+#hmmsi-span{
+  top: 1220px;
+}
+#hmmsi-switch{
+  top: 1220px;
+}
+
+#reset-settings-btn{
+  position: absolute;
+  padding: 3px;
+}
+
+/* changelog */
+
+.cl-span{
+  color: white;
+  font-family: Roboto Condensed;
+}
+#disclaimer{
+  color: gray;
+  font-family: Roboto Condensed;
+  font-size: 15px;
+  text-align: center;
+}
+#disclaimer a{
+  color: gray;
+}
+#disclaimer a:hover{
+  color: white;
+}
+
+#teammates{
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  margin: 5px;
+  padding: 5px;
+  background-color: #191919;
+  color: #a5a2a2;
+  height: 250px;
+  width: 250px;
+  text-align: center;
+  font-family: Roboto condensed;
+  overflow: auto;
+}
+#teammates-title{
+font-family:  Roboto condensed;
+font-size: 30px;
+color: white;
+
+}
+#teammates-top5{
+  color: white;
+  list-style-position: inside;
+}
+#currentTime{
+    font-size: 16px;
+    font-family: Roboto condensed;
+    position: absolute;
+    width: 200px;
+    height: 20px;
+    background: #191919;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+/* new nav */
+.control-bar {
+    display: flex;
+    justify-content: center;
+    user-select: none
+}
+.control-bar .buttons {
+    display: flex;
+    flex-direction: row;
+    transform: scale(1.06)
+}
+.control-bar .buttons .button {
+    width: 130px;
+    height: 100px;
+    background: linear-gradient(90deg, #333, #333, #333, #333);
+    transform: skewX(-10deg) scaleX(1);
+    transition: transform 0.2s ease-out;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden
+}
+
+.control-bar .buttons .button .inner {
+    transform: skewX(10deg) scaleX(1);
+    transition: transform 0.2s ease-out;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0px 1px 5px rgba(0,0,0,0.5);
+    pointer-events: none
+}
+
+.control-bar .buttons .button .inner .icon i {
+    font-size: 36px
+}
+
+.control-bar .buttons .button .inner .label {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase
+}
+
+.control-bar .buttons .button.left {
+    margin-right: -10px;
+    z-index: 4;
+    transform-origin: right;
+    background: #333333;
+    box-shadow: -1px 0px 1px rgba(0,0,0,0.5)
+}
+
+.control-bar .buttons .button.left .inner {
+    transform: skewX(10deg) scaleX(1) translateX(-6px)
+}
+
+.control-bar .buttons .button.left:hover {
+    transform: skewX(-10deg) scaleX(1.15)
+}
+
+.control-bar .buttons .button.left:hover .inner {
+    transform: skewX(10deg) scaleX(0.87) translateX(-8px)
+}
+
+.control-bar .buttons .button.dummy {
+    width: 120px;
+    z-index: 4
+}
+
+.control-bar .buttons .button.right {
+    margin-left: -10px;
+    transform-origin: left;
+    box-shadow: 4px 0px 4px rgba(0,0,0,0.2)
+}
+
+.control-bar .buttons .button.right .inner {
+    transform: skewX(10deg) scaleX(1) translateX(2px)
+}
+
+.control-bar .buttons .button.right:hover {
+    transform: skewX(-10deg) scaleX(1.15)
+}
+
+.control-bar .buttons .button.right:hover .inner {
+    transform: skewX(10deg) scaleX(0.87) translateX(3px)
+}
+
+.control-bar .buttons .button.right.one {
+    z-index: 4;
+    background: #333
+}
+
+.control-bar .buttons .button.right.one:hover ~ .button.right.two,.control-bar .buttons .button.right.one:hover ~ .button.right.three,.control-bar .buttons .button.right.one:hover ~ .button.right.four {
+    transform: skewX(-10deg) translateX(7px)
+}
+
+.control-bar .buttons .button.right.two {
+    z-index: 3;
+    background: #333;
+}
+
+.control-bar .buttons .button.right.two:hover ~ .button.right.three,.control-bar .buttons .button.right.two:hover ~ .button.right.four {
+    transform: skewX(-10deg) translateX(14px)
+}
+
+.control-bar .buttons .button.right.three {
+    z-index: 2;
+    background: #333
+}
+
+.control-bar .buttons .button.right.three:hover ~ .button.right.four {
+    transform: skewX(-10deg) translateX(20px)
+}
+
+.control-bar .buttons .button.right.four {
+    z-index: 1;
+    background: #333
+}
+
+.control-bar .buttons .button.right.four .icon.on {
+    display: none
+}
+
+.control-bar .buttons .button.right.four .icon.off {
+    display: block
+}
+
+.control-bar .skin-preview-circle {
+    position: absolute;
+    left: 50%;
+    z-index: 10;
+    width: 500px;
+    height: 130px;
+    margin-left: -50px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 5%;
+    transform: translateX(-400px) translateY(-20px) scale(.3);
+    transition: all 0.3s;
+}
+
+
+
+.control-bar .skin-preview-circle:hover {
+    transform: translateX(-195px) scale(1.5)
+}
+/* skinbar */
+#skins{
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%) translateY(calc(-50% - .5px));
+  background-color: #191919;
+  color: #a5a2a2;
+  height: 300px;
+  width: 500px;
+  text-align: center;
+  font-family: Roboto condensed;
+}
+.skin-preview{
+    background-color: transparent;
+    border: 1px solid #FFF;
+    border-radius: 600px;
+    box-shadow: 0 0 2px #888;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    background-size: contain;
+}
+.control-bar .skin-preview-circle .container .preview {
+	background-size: contain;
+}
+
+.skin-preview:hover{
+  box-shadow: 0 0 20px #888;
+  cursor: pointer;
+}
+#skin1 {
+  top: 10px;
+  left: 30px;
+}
+#skin2 {
+  top: 10px;
+  left: 200px;
+}
+#skin3 {
+  top: 10px;
+  right: 40px;
+}
+#skin4 {
+  bottom: 40px;
+  left: 40px;
+}
+#skin5 {
+  bottom: 40px;
+  left: 200px;
+}
+#skin6 {
+  bottom: 40px;
+  right: 40px;
+}
+#spi1{
+left: 25px;
+top: 120px;
+width: 100px;
+height: 10px;
+}
+#spi2{
+left: 195px;
+top: 120px;
+width: 100px;
+height: 10px;
+}
+#spi3{
+left: 355px;
+top: 120px;
+width: 100px;
+height: 10px;
+}
+#spi4{
+left: 25px;
+top: 265px;
+width: 100px;
+height: 10px;
+}
+#spi5{
+left: 195px;
+top: 265px;
+width: 100px;
+height: 10px;
+}
+#spi6{
+left: 355px;
+top: 265px;
+width: 100px;
+height: 10px;
+}
+/* chat */
+#chatbox {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#chat-container {
+  list-style: none;
+  display: flex;
+  bottom: 6%;
+  left: 10px;
+  width: 250px;
+  height: 400px;
+  position: absolute;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.messages {
+  width: 230px;
+  word-wrap: break-all;
+  display: block;
+  padding: 10px;
+  background-color: #4c4c4c;
+  color: white;
+  animation: fadeOut 3s forwards;
+  animation-delay: 3s;
+}
+
+@-webkit-keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
