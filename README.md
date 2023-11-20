@@ -1,5 +1,9 @@
 # biomium
-A biome3d extension
+A [biome3d](http://biome3d.com/) extension
+
+# Installation
+1. Install [Tampermonkey](https://www.tampermonkey.net/) extension for your browser.
+2. Install the client: https://github.com/hfsyntax/biomium/blob/master/client/biomium.user.js
 
 # Built-in Themes
 
