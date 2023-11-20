@@ -2,4 +2,4 @@
 A biome3d extension
 
 # Built-in Themes
-![Themes Demo Gif](https://github.com/hfsyntax/biomium/blob/master/sample_images/themes-demo (1).gif)
+![Themes Demo Gif](https://github.com/hfsyntax/biomium/blob/master/sample_images/themes-demo%20(1).gif)
