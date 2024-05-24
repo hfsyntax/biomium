@@ -3,7 +3,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.3.4/jquery.minicolors.css');
 
 body {
-    padding: unset;
+    padding: unset !important;
 }
 
 body ins {
