@@ -416,30 +416,29 @@ const removeBloatware = () => {
     }
 
     const ads = document.querySelectorAll(".adsbygoogle")
-    
+
     for (let ad of ads) {
         ad.parentNode.removeChild(ad)
     }
-}
 
-if (proceed) {
-    const init = async () => {
-        await waitForLeaderboardRender()
-        removeBloatware()
-        console.log(`finished removing bloatware, there is now ${document.scripts.length} scripts...`)
-        
-        console.log(`JQuery loaded: ${window.jQuery}`)
-        console.log(`minicolors loaded: ${$.fn.minicolors}`)
-        console.log(`
+    console.log(`finished removing bloatware, there is now ${document.scripts.length} scripts...`)
+
+    console.log(`JQuery loaded: ${window.jQuery}`)
+    console.log(`minicolors loaded: ${$.fn.minicolors}`)
+    console.log(`
     __________.__               .__
     \\______   \\__| ____   _____ |__|__ __  _____
      |    |  _/  |/  _ \\ /     \\|  |  |  \\/     \\
      |    |   \\  (  <_> )  Y Y  \\  |  |  /  Y Y  \\
      |______  /__|\\____/|__|_|  /__|____/|__|_|  /
             \\/                \\/               \\/ 
-`);
+    `);
+}
 
-
+if (proceed) {
+    const init = async () => {
+        await waitForLeaderboardRender()
+        removeBloatware()
         const startpanel = document.querySelector('#startpanel')
         startpanel.className = 'tabcontent'
         document.querySelector("head > link:nth-child(7)").href = "https://hfsyntax.github.io/biomium/client/biome3d.css"
@@ -547,7 +546,7 @@ if (proceed) {
                 skinHolder.style.backgroundImage = 'url(assets/images/skins/' + localStorage.getItem("skin-select") + '.jpg)';
                 skinSelect.value = localStorage.getItem("skin-select")
             }
-            
+
         });
 
         skinSelect.onchange = function () {
