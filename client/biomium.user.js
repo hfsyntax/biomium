@@ -221,18 +221,18 @@ function elemToString(elem) {
 }
 
 let splitKey = localStorage.getItem('split-key')
-let doubleKey = localStorage.getItem('dsplit-key') || 81
-let maxKey = localStorage.getItem('msplit-key') || 16
-let respawnKey = localStorage.getItem('respawn-key') || 82
-let navKey = localStorage.getItem('nav-key') || 27
+let doubleKey = localStorage.getItem('dsplit-key') || "q"
+let maxKey = localStorage.getItem('msplit-key') || "Shift"
+let respawnKey = localStorage.getItem('respawn-key') || "r"
+let navKey = localStorage.getItem('nav-key') || "Escape"
 
 
 function hotkeyConfig() {
     splitKey = null; localStorage.setItem('split-key', splitKey); document.getElementById('x1split-input').value = ""; localStorage.setItem('split-key-value', document.getElementById('x1split-input').value)
-    doubleKey = 81; localStorage.setItem('dsplit-key', doubleKey); document.getElementById('x2split-input').value = doubleKey; localStorage.setItem('dsplit-key-value', doubleKey)
-    maxKey = 16; localStorage.setItem('msplit-key', maxKey); document.getElementById('x16split-input').value = maxKey; localStorage.setItem('msplit-key-value', maxKey)
-    respawnKey = 82; localStorage.setItem('respawn-key', respawnKey); document.getElementById('respawn-input').value = respawnKey; localStorage.setItem('respawn-key-value', respawnKey)
-    navKey = 27; localStorage.setItem('nav-key', navKey); document.getElementById('tnav-input').value = navKey; localStorage.setItem('nav-key-value', navKey)
+    doubleKey = "q"; localStorage.setItem('dsplit-key', doubleKey); document.getElementById('x2split-input').value = doubleKey; localStorage.setItem('dsplit-key-value', doubleKey)
+    maxKey = "Shift"; localStorage.setItem('msplit-key', maxKey); document.getElementById('x16split-input').value = maxKey; localStorage.setItem('msplit-key-value', maxKey)
+    respawnKey = "r"; localStorage.setItem('respawn-key', respawnKey); document.getElementById('respawn-input').value = respawnKey; localStorage.setItem('respawn-key-value', respawnKey)
+    navKey = "Escape"; localStorage.setItem('nav-key', navKey); document.getElementById('tnav-input').value = navKey; localStorage.setItem('nav-key-value', navKey)
 }
 
 function hkSetMode(mode) {
@@ -590,7 +590,7 @@ if (proceed) {
         unsafeWindow.addEventListener("keydown", split, false);
         function split(key) {
             if (isInputting == false && splitKey != doubleKey && splitKey != maxKey && splitKey != respawnKey && splitKey != navKey) {
-                if (key.keyCode == splitKey) {
+                if (key.key == splitKey) {
                     let command = new Writer(5);
                     command.write(10, 1);
                     let split = command.getArrayBuffer();
@@ -600,7 +600,7 @@ if (proceed) {
         }
         single_split.onkeyup = function (key) {
             isInputting = true
-            splitKey = key.keyCode
+            splitKey = key.key
             single_split.value = splitKey
             setTimeout(() => { isInputting = false }, 1000);
         }
@@ -614,7 +614,7 @@ if (proceed) {
         unsafeWindow.addEventListener("keydown", dsplit, false);
         function dsplit(key) {
             if (isInputting == false && doubleKey != splitKey && doubleKey != maxKey && doubleKey != respawnKey && doubleKey != navKey) {
-                if (key.keyCode == doubleKey) {
+                if (key.key == doubleKey) {
                     let command = new Writer(5);
                     command.write(10, 1);
                     let split = command.getArrayBuffer();
@@ -624,7 +624,7 @@ if (proceed) {
         }
         double_split.onkeyup = function (key) {
             isInputting = true
-            doubleKey = key.keyCode
+            doubleKey = key.key
             double_split.value = doubleKey
             setTimeout(() => { isInputting = false }, 1000);
         }
@@ -638,7 +638,7 @@ if (proceed) {
         unsafeWindow.addEventListener("keydown", msplit, false);
         function msplit(key) {
             if (isInputting == false && maxKey != splitKey && maxKey != doubleKey && maxKey != respawnKey && maxKey != navKey) {
-                if (key.keyCode == maxKey) {
+                if (key.key == maxKey) {
                     let command = new Writer(5);
                     command.write(10, 1);
                     let split = command.getArrayBuffer();
@@ -648,7 +648,7 @@ if (proceed) {
         }
         max_split.onkeyup = function (key) {
             isInputting = true
-            maxKey = key.keyCode
+            maxKey = key.key
             max_split.value = maxKey
             setTimeout(() => { isInputting = false }, 1000)
         }
@@ -662,7 +662,7 @@ if (proceed) {
         unsafeWindow.addEventListener("keydown", respawn, false);
         function respawn(key) {
             if (isInputting == false && alive == true && respawnKey != splitKey && respawnKey != doubleKey && respawnKey != maxKey && respawnKey != navKey) {
-                if (key.keyCode == respawnKey) {
+                if (key.key == respawnKey) {
                     document.getElementById('play-button').disabled = false
                     document.getElementById('play-button').click()
                 }
@@ -670,7 +670,7 @@ if (proceed) {
         }
         respawn_input.onkeyup = function (key) {
             isInputting = true
-            respawnKey = key.keyCode
+            respawnKey = key.key
             respawn_input.value = respawnKey
             setTimeout(() => { isInputting = false }, 1000)
         }
@@ -697,7 +697,7 @@ if (proceed) {
         unsafeWindow.addEventListener("keydown", togglePanelFunc, false);
         function togglePanelFunc(key) {
             if (isInputting == false && alive == true && navKey != splitKey && navKey != doubleKey && navKey != maxKey && navKey != respawnKey) {
-                if (key.keyCode == navKey) {
+                if (key.key == navKey) {
                     togglePanel()
                 }
 
@@ -705,7 +705,7 @@ if (proceed) {
         }
         nav_input.onkeyup = function (key) {
             isInputting = true
-            navKey = key.keyCode
+            navKey = key.key
             nav_input.value = navKey
             setTimeout(() => { isInputting = false }, 1000)
         }
