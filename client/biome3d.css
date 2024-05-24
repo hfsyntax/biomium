@@ -3,11 +3,11 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.3.4/jquery.minicolors.css');
 
 body {
-   padding: unset;
+    padding: unset;
 }
 
 body ins {
-   display: none !important;
+    display: none !important;
 }
 
 span:hover{
@@ -87,8 +87,8 @@ span:hover{
     background-color: #4c4c4c;
     position: absolute;
     color: white;
-    outline: ;
-    border: ;
+    outline: none;
+    border: none;
 }
 
 #custom-skin {
@@ -98,7 +98,7 @@ span:hover{
 }
 
 .tabcontent {
-    display: ;
+    display: none;
     padding: 5px;
     position: absolute;
     left: 50%;
