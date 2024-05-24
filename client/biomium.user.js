@@ -7,6 +7,7 @@
 // @require      https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js
 // @require      https://code.jquery.com/jquery-3.2.1.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.3.4/jquery.minicolors.min.js
+// @updateURL  https://github.com/hfsyntax/biomium/raw/main/client/biomium.user.js
 // ==/UserScript==
 
 let server = unsafeWindow.location.host.split(".")[0]
