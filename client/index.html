@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Biome3d</title>
+        <meta property="og:url"           content="http://biome3d.com" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Biome3d" />
+        <meta property="og:description"   content="Eat other cells to become the biggest one! Can you get to the top 10?" />
+        <meta property="og:image"         content="http://biome3d.com/assets/images/biome3d.jpg" />
+
+        <link rel="stylesheet" media="screen" href="http://biome3d.com/assets/stylesheets/main.min.css">
+        <link rel="shortcut icon" type="image/png" href="http://biome3d.com/assets/images/favicon.png">
+        <script src="http://biome3d.com/webjars/requirejs/2.1.15/require.min.js"></script>
+        <script>
+          requirejs.config({
+            baseUrl : 'http://biome3d.com/assets/javascripts'
+          });
+          require(['all.min'], function() {
+            require(['common'], function() {
+                require(['index']);
+            });
+          });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
