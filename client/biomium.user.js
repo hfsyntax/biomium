@@ -269,6 +269,7 @@ function hkSetMode(mode) {
             document.getElementById('play-button').disabled = false
             document.getElementById('name-input').disabled = false
             document.getElementById('teammates').style.display = 'none'
+            document.getElementById('sector-location').textContent = 'null'
             if (document.getElementById('ar-switch-e').checked) document.getElementById('play-button').click()
             if (isConnected()) {
                 socket.emit('death')
