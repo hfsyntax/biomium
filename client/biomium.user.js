@@ -226,273 +226,13 @@ let maxKey = localStorage.getItem('msplit-key') || 16
 let respawnKey = localStorage.getItem('respawn-key') || 82
 let navKey = localStorage.getItem('nav-key') || 27
 
-var keyboardMap = [
-    "", // [0]
-    "", // [1]
-    "", // [2]
-    "CANCEL", // [3]
-    "", // [4]
-    "", // [5]
-    "HELP", // [6]
-    "", // [7]
-    "BACK_SPACE", // [8]
-    "TAB", // [9]
-    "", // [10]
-    "", // [11]
-    "CLEAR", // [12]
-    "ENTER", // [13]
-    "ENTER_SPECIAL", // [14]
-    "", // [15]
-    "SHIFT", // [16]
-    "CONTROL", // [17]
-    "ALT", // [18]
-    "PAUSE", // [19]
-    "CAPS_LOCK", // [20]
-    "KANA", // [21]
-    "EISU", // [22]
-    "JUNJA", // [23]
-    "FINAL", // [24]
-    "HANJA", // [25]
-    "", // [26]
-    "ESCAPE", // [27]
-    "CONVERT", // [28]
-    "NONCONVERT", // [29]
-    "ACCEPT", // [30]
-    "MODECHANGE", // [31]
-    "SPACE", // [32]
-    "PAGE_UP", // [33]
-    "PAGE_DOWN", // [34]
-    "END", // [35]
-    "HOME", // [36]
-    "LEFT", // [37]
-    "UP", // [38]
-    "RIGHT", // [39]
-    "DOWN", // [40]
-    "SELECT", // [41]
-    "PRINT", // [42]
-    "EXECUTE", // [43]
-    "PRINTSCREEN", // [44]
-    "INSERT", // [45]
-    "DELETE", // [46]
-    "", // [47]
-    "0", // [48]
-    "1", // [49]
-    "2", // [50]
-    "3", // [51]
-    "4", // [52]
-    "5", // [53]
-    "6", // [54]
-    "7", // [55]
-    "8", // [56]
-    "9", // [57]
-    "COLON", // [58]
-    "SEMICOLON", // [59]
-    "LESS_THAN", // [60]
-    "EQUALS", // [61]
-    "GREATER_THAN", // [62]
-    "QUESTION_MARK", // [63]
-    "AT", // [64]
-    "A", // [65]
-    "B", // [66]
-    "C", // [67]
-    "D", // [68]
-    "E", // [69]
-    "F", // [70]
-    "G", // [71]
-    "H", // [72]
-    "I", // [73]
-    "J", // [74]
-    "K", // [75]
-    "L", // [76]
-    "M", // [77]
-    "N", // [78]
-    "O", // [79]
-    "P", // [80]
-    "Q", // [81]
-    "R", // [82]
-    "S", // [83]
-    "T", // [84]
-    "U", // [85]
-    "V", // [86]
-    "W", // [87]
-    "X", // [88]
-    "Y", // [89]
-    "Z", // [90]
-    "OS_KEY", // [91] Windows Key (Windows) or Command Key (Mac)
-    "", // [92]
-    "CONTEXT_MENU", // [93]
-    "", // [94]
-    "SLEEP", // [95]
-    "NUMPAD0", // [96]
-    "NUMPAD1", // [97]
-    "NUMPAD2", // [98]
-    "NUMPAD3", // [99]
-    "NUMPAD4", // [100]
-    "NUMPAD5", // [101]
-    "NUMPAD6", // [102]
-    "NUMPAD7", // [103]
-    "NUMPAD8", // [104]
-    "NUMPAD9", // [105]
-    "MULTIPLY", // [106]
-    "ADD", // [107]
-    "SEPARATOR", // [108]
-    "SUBTRACT", // [109]
-    "DECIMAL", // [110]
-    "DIVIDE", // [111]
-    "F1", // [112]
-    "F2", // [113]
-    "F3", // [114]
-    "F4", // [115]
-    "F5", // [116]
-    "F6", // [117]
-    "F7", // [118]
-    "F8", // [119]
-    "F9", // [120]
-    "F10", // [121]
-    "F11", // [122]
-    "F12", // [123]
-    "F13", // [124]
-    "F14", // [125]
-    "F15", // [126]
-    "F16", // [127]
-    "F17", // [128]
-    "F18", // [129]
-    "F19", // [130]
-    "F20", // [131]
-    "F21", // [132]
-    "F22", // [133]
-    "F23", // [134]
-    "F24", // [135]
-    "", // [136]
-    "", // [137]
-    "", // [138]
-    "", // [139]
-    "", // [140]
-    "", // [141]
-    "", // [142]
-    "", // [143]
-    "NUM_LOCK", // [144]
-    "SCROLL_LOCK", // [145]
-    "WIN_OEM_FJ_JISHO", // [146]
-    "WIN_OEM_FJ_MASSHOU", // [147]
-    "WIN_OEM_FJ_TOUROKU", // [148]
-    "WIN_OEM_FJ_LOYA", // [149]
-    "WIN_OEM_FJ_ROYA", // [150]
-    "", // [151]
-    "", // [152]
-    "", // [153]
-    "", // [154]
-    "", // [155]
-    "", // [156]
-    "", // [157]
-    "", // [158]
-    "", // [159]
-    "CIRCUMFLEX", // [160]
-    "EXCLAMATION", // [161]
-    "DOUBLE_QUOTE", // [162]
-    "HASH", // [163]
-    "DOLLAR", // [164]
-    "PERCENT", // [165]
-    "AMPERSAND", // [166]
-    "UNDERSCORE", // [167]
-    "OPEN_PAREN", // [168]
-    "CLOSE_PAREN", // [169]
-    "ASTERISK", // [170]
-    "PLUS", // [171]
-    "PIPE", // [172]
-    "HYPHEN_MINUS", // [173]
-    "OPEN_CURLY_BRACKET", // [174]
-    "CLOSE_CURLY_BRACKET", // [175]
-    "TILDE", // [176]
-    "", // [177]
-    "", // [178]
-    "", // [179]
-    "", // [180]
-    "VOLUME_MUTE", // [181]
-    "VOLUME_DOWN", // [182]
-    "VOLUME_UP", // [183]
-    "", // [184]
-    "", // [185]
-    "SEMICOLON", // [186]
-    "EQUALS", // [187]
-    "COMMA", // [188]
-    "MINUS", // [189]
-    "PERIOD", // [190]
-    "SLASH", // [191]
-    "BACK_QUOTE", // [192]
-    "", // [193]
-    "", // [194]
-    "", // [195]
-    "", // [196]
-    "", // [197]
-    "", // [198]
-    "", // [199]
-    "", // [200]
-    "", // [201]
-    "", // [202]
-    "", // [203]
-    "", // [204]
-    "", // [205]
-    "", // [206]
-    "", // [207]
-    "", // [208]
-    "", // [209]
-    "", // [210]
-    "", // [211]
-    "", // [212]
-    "", // [213]
-    "", // [214]
-    "", // [215]
-    "", // [216]
-    "", // [217]
-    "", // [218]
-    "OPEN_BRACKET", // [219]
-    "BACK_SLASH", // [220]
-    "CLOSE_BRACKET", // [221]
-    "QUOTE", // [222]
-    "", // [223]
-    "META", // [224]
-    "ALTGR", // [225]
-    "", // [226]
-    "WIN_ICO_HELP", // [227]
-    "WIN_ICO_00", // [228]
-    "", // [229]
-    "WIN_ICO_CLEAR", // [230]
-    "", // [231]
-    "", // [232]
-    "WIN_OEM_RESET", // [233]
-    "WIN_OEM_JUMP", // [234]
-    "WIN_OEM_PA1", // [235]
-    "WIN_OEM_PA2", // [236]
-    "WIN_OEM_PA3", // [237]
-    "WIN_OEM_WSCTRL", // [238]
-    "WIN_OEM_CUSEL", // [239]
-    "WIN_OEM_ATTN", // [240]
-    "WIN_OEM_FINISH", // [241]
-    "WIN_OEM_COPY", // [242]
-    "WIN_OEM_AUTO", // [243]
-    "WIN_OEM_ENLW", // [244]
-    "WIN_OEM_BACKTAB", // [245]
-    "ATTN", // [246]
-    "CRSEL", // [247]
-    "EXSEL", // [248]
-    "EREOF", // [249]
-    "PLAY", // [250]
-    "ZOOM", // [251]
-    "", // [252]
-    "PA1", // [253]
-    "WIN_OEM_CLEAR", // [254]
-    "" // [255]
-];
-
 
 function hotkeyConfig() {
     splitKey = null; localStorage.setItem('split-key', splitKey); document.getElementById('x1split-input').value = ""; localStorage.setItem('split-key-value', document.getElementById('x1split-input').value)
-    doubleKey = 81; localStorage.setItem('dsplit-key', doubleKey); document.getElementById('x2split-input').value = keyboardMap[doubleKey]; localStorage.setItem('dsplit-key-value', keyboardMap[doubleKey])
-    maxKey = 16; localStorage.setItem('msplit-key', maxKey); document.getElementById('x16split-input').value = keyboardMap[maxKey]; localStorage.setItem('msplit-key-value', keyboardMap[maxKey])
-    respawnKey = 82; localStorage.setItem('respawn-key', respawnKey); document.getElementById('respawn-input').value = keyboardMap[respawnKey]; localStorage.setItem('respawn-key-value', keyboardMap[respawnKey])
-    navKey = 27; localStorage.setItem('nav-key', navKey); document.getElementById('tnav-input').value = keyboardMap[navKey]; localStorage.setItem('nav-key-value', keyboardMap[navKey])
-    //chatKey = 90; localStorage.setItem('chat-key', chatKey);  document.getElementById('chatKey-input').value = keyboardMap[chatKey]; localStorage.setItem('chat-key-value', keyboardMap[chatKey])
+    doubleKey = 81; localStorage.setItem('dsplit-key', doubleKey); document.getElementById('x2split-input').value = doubleKey; localStorage.setItem('dsplit-key-value', doubleKey)
+    maxKey = 16; localStorage.setItem('msplit-key', maxKey); document.getElementById('x16split-input').value = maxKey; localStorage.setItem('msplit-key-value', maxKey)
+    respawnKey = 82; localStorage.setItem('respawn-key', respawnKey); document.getElementById('respawn-input').value = respawnKey; localStorage.setItem('respawn-key-value', respawnKey)
+    navKey = 27; localStorage.setItem('nav-key', navKey); document.getElementById('tnav-input').value = navKey; localStorage.setItem('nav-key-value', navKey)
 }
 
 function hkSetMode(mode) {
@@ -861,11 +601,11 @@ if (proceed) {
         single_split.onkeyup = function (key) {
             isInputting = true
             splitKey = key.keyCode
-            single_split.value = keyboardMap[splitKey]
+            single_split.value = splitKey
             setTimeout(() => { isInputting = false }, 1000);
         }
         let double_split = document.getElementById("x2split-input")
-        double_split.value = localStorage.getItem('dsplit-key-value') || keyboardMap[doubleKey]
+        double_split.value = localStorage.getItem('dsplit-key-value') || doubleKey
         double_split.onchange = function () {
             localStorage.setItem('dsplit-key', doubleKey)
             localStorage.setItem('dsplit-key-value', double_split.value)
@@ -885,11 +625,11 @@ if (proceed) {
         double_split.onkeyup = function (key) {
             isInputting = true
             doubleKey = key.keyCode
-            double_split.value = keyboardMap[doubleKey]
+            double_split.value = doubleKey
             setTimeout(() => { isInputting = false }, 1000);
         }
         let max_split = document.getElementById("x16split-input")
-        max_split.value = localStorage.getItem('msplit-key-value') || keyboardMap[maxKey]
+        max_split.value = localStorage.getItem('msplit-key-value') || maxKey
         max_split.onchange = function () {
             localStorage.setItem('msplit-key', maxKey)
             localStorage.setItem('msplit-key-value', max_split.value)
@@ -909,11 +649,11 @@ if (proceed) {
         max_split.onkeyup = function (key) {
             isInputting = true
             maxKey = key.keyCode
-            max_split.value = keyboardMap[maxKey]
+            max_split.value = maxKey
             setTimeout(() => { isInputting = false }, 1000)
         }
         let respawn_input = document.getElementById('respawn-input')
-        respawn_input.value = localStorage.getItem('respawn-key-value') || keyboardMap[respawnKey]
+        respawn_input.value = localStorage.getItem('respawn-key-value') || respawnKey
         respawn_input.onchange = function () {
             localStorage.setItem('respawn-key', respawnKey)
             localStorage.setItem('respawn-key-value', respawn_input.value)
@@ -931,12 +671,12 @@ if (proceed) {
         respawn_input.onkeyup = function (key) {
             isInputting = true
             respawnKey = key.keyCode
-            respawn_input.value = keyboardMap[respawnKey]
+            respawn_input.value = respawnKey
             setTimeout(() => { isInputting = false }, 1000)
         }
 
         let nav_input = document.getElementById('tnav-input')
-        nav_input.value = localStorage.getItem('nav-key-value') || keyboardMap[navKey]
+        nav_input.value = localStorage.getItem('nav-key-value') || navKey
         nav_input.onchange = function () {
             localStorage.setItem('nav-key', navKey)
             localStorage.setItem('nav-key-value', nav_input.value)
@@ -966,7 +706,7 @@ if (proceed) {
         nav_input.onkeyup = function (key) {
             isInputting = true
             navKey = key.keyCode
-            nav_input.value = keyboardMap[navKey]
+            nav_input.value = navKey
             setTimeout(() => { isInputting = false }, 1000)
         }
 
