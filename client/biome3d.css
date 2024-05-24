@@ -2,6 +2,14 @@
 @import url('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/jquery-minicolors/2.3.4/jquery.minicolors.css');
 
+body {
+   padding: unset;
+}
+
+body ins {
+   display: none !important;
+}
+
 span:hover{
   cursor: default;
 }
@@ -79,8 +87,8 @@ span:hover{
     background-color: #4c4c4c;
     position: absolute;
     color: white;
-    outline: none;
-    border: none;
+    outline: ;
+    border: ;
 }
 
 #custom-skin {
@@ -90,7 +98,7 @@ span:hover{
 }
 
 .tabcontent {
-    display: none;
+    display: ;
     padding: 5px;
     position: absolute;
     left: 50%;
